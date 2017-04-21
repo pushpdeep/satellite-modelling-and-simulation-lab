@@ -1,0 +1,616 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="experiment">
+        <!-- The Experiment Document Container-->
+        <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
+
+        <header class="default" id="experiment-header">
+            <div class="logo" id="experiment-header-logo">
+            <!-- Enclose the logo image of your lab or write it in 
+      text-->
+            <img src="../images/logo.jpg"></div>
+
+            <div class="heading" id="experiment-header-heading">
+                <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+                <a href="../index.html">Virtual Laboratory in Satellite Modeling & Simulation Lab</a>
+            </div><!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
+        </header><!-- The lab article is the main content area where all the 
+  experiment content sits-->
+
+        <article id="experiment-article">
+            <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+
+            <div class="breadcrumb" id="experiment-article-breadcrumb"></div>
+
+            <header class="heading" id="experiment-article-heading">
+                Reference Frames and Transformations
+            </header><!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+
+            <nav class="default" id="experiment-article-navigation">
+                <ul id="experiment-article-navigation-menu">
+                    <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          &lt;li&gt; tag as shown below-->
+                </ul>
+            </nav><!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+
+            <div id="experiment-article-sections">
+                <!-- First section of the article-->
+
+                <section id="experiment-article-section-1">
+                    <div class="icon" id="experiment-article-section-1-icon">
+                    <!-- Enclose the icon image of your lab -->
+                    <img src="../images/introduction.jpg"></div>
+                    <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+
+                    <div class="heading" id="experiment-article-section-1-heading">
+                        Aim
+                    </div><!-- Write the section content inside a paragraph 
+          element, You can also include images with &lt;img&gt; tag -->
+
+                    <div class="content" id="experiment-article-section-1-content">
+                        <div class="divContent">
+                          
+                            <p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                            <p><span style="font-size: medium; font-family: arial,helvetica,sans-serif; color: rgb(0, 0, 0);">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To analyze the transformation of sun-vector and magnetic field vector in different reference frames.</span></p>
+                            
+                            <p><!-- p { margin-bottom: 0.21cm; } --></p>
+
+                            <p><span style="font-family: arial,helvetica,sans-serif; font-size: medium; color: rgb(0, 0, 0);">
+                            <br></span></p>
+                        </div>
+                    </div>
+                </section><!-- Second section of the article-->
+
+           <!--     <section id="experiment-article-section-2">
+                    <div class="icon" id="experiment-article-section-2-icon">
+                    <!-- Enclose the icon image of your lab. -->
+                <!--    <img src="../images/theory.jpg"></div>
+                    <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+
+                  <!--  <div class="heading" id="experiment-article-section-2-heading">
+                        Pre Test
+                    </div><!-- Write the section content inside a paragraph 
+        element, we can also include images with &lt;img&gt; tag -->
+
+                <!--    <div class="content" id=
+                    "experiment-article-section-2-content">
+                        <div class="divQuiz">
+                            <div id="displayQuiz">
+                                <form id="form11" method="post" name="form11">
+                                    <table border="0" style="width:100%">
+                                        <tr>
+                                            <td valign="top" width="2%"></td>
+
+                                            <td style=
+                                            "font-weight: bold; vertical-align: top; width: 1%"
+                                            width="5%"><span id=
+                                            "questionNum">1)</span></td>
+
+                                            <td colspan="2" style=
+                                            "vertical-align:top;" width="70%">
+                                            <span id="question">Transducer is a
+                                            device</span></td>
+
+                                            <td colspan="3" width="3%">
+                                            &nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>&nbsp;</td>
+
+                                            <td>&nbsp;</td>
+
+                                            <td colspan="5" width="80%">
+                                                <table align="left" border="0"
+                                                width="100%">
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans5998" name="ans0"
+                                                        type="radio" value=
+                                                        "5998"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans5998">that converts
+                                                        one form of energy into
+                                                        another
+                                                        form</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans5999" name="ans0"
+                                                        type="radio" value=
+                                                        "5999"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans5999">has mostly
+                                                        eletrical
+                                                        output</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6000" name="ans0"
+                                                        type="radio" value=
+                                                        "6000"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6000">with both the
+                                                        above
+                                                        properties</label></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div id="hint">
+                                        <div id="textHint10" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    <hr id="horizontalLine">
+
+                                    <table border="0" style="width:100%">
+                                        <tr>
+                                            <td valign="top" width="2%"></td>
+
+                                            <td style=
+                                            "font-weight: bold; vertical-align: top; width: 1%"
+                                            width="5%"><span id=
+                                            "questionNum">2)</span></td>
+
+                                            <td colspan="2" style=
+                                            "vertical-align:top;" width="70%">
+                                            <span id="question">Temperature is
+                                            measure of degree of -------- of a
+                                            substance.</span></td>
+
+                                            <td colspan="3" width="3%">
+                                            &nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>&nbsp;</td>
+
+                                            <td>&nbsp;</td>
+
+                                            <td colspan="5" width="80%">
+                                                <table align="left" border="0"
+                                                width="100%">
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6001" name="ans1"
+                                                        type="radio" value=
+                                                        "6001"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6001">Hotness</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6002" name="ans1"
+                                                        type="radio" value=
+                                                        "6002"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6002">Coldness</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6003" name="ans1"
+                                                        type="radio" value=
+                                                        "6003"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6003">Hotness or
+                                                        Coldness</label></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div id="hint">
+                                        <div id="textHint11" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    
+                                    <div id="hint">
+                                        <div id="textHint14" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    <hr id="horizontalLine">
+                                    <input align="middle" id="loadTime" name=
+                                    "loadTime" type="hidden" value=
+                                    "1379688870/"><br>
+
+                                    <div style="padding-left:40px;">
+                                        <input id="submit1" name="submit1"
+                                        onclick="get_radio_value();" style=
+                                        "width:8%;" type="submit" value=
+                                        "&nbsp;Submit&nbsp;">&nbsp;&nbsp;<input id="cancel1"
+                                        name="cancel1" style="width:8%;" type=
+                                        "reset" value="&nbsp;Cancel&nbsp;">
+                                    </div>
+                                </form><br>
+                            </div><br>
+                        </div>
+                    </div>
+                </section> -->
+
+                <section id="experiment-article-section-3">
+                    <div class="icon" id="experiment-article-section-3-icon">
+                        <!-- Enclose the icon image of your lab. -->
+                        <img src="../images/objective.jpg">
+                    </div>
+
+                    <div class="heading" id="experiment-article-section-3-heading">
+                        Theory
+                    </div>
+
+                    <div class="content" id="experiment-article-section-3-content">
+                        <div class="divContent">
+                            <p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p> <br>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>
+                            The motion of rigid body is specified using its position, velocity, acceleration etc. These vector quantities are specified in some frame of reference. Thus equations of motion are also written with respect to that frame. As you might know, the same motion can be analyzed with respect to different frames of reference. The use of different frames simplifies understanding of motion. Sometimes it eases calculations and helps in visualizing various aspects of motion. In order to go from one frame to another frame we have to transform corresponding vectors using transformation law.</span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>The satellite dynamics can also be studied in different frames.In this experiment different frames associated with satellite motion will be explained.</span></p>
+                            <br>
+                            <ul>
+                            	<li>ECIF(Earth Centered Inertial Frame)</li>
+                            	<li>Orbit frame</li>
+                            	<li>Body frame</li>
+                            </ul>
+                            <br>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>After that linear transformation from ECIF to orbit frame will be discussed. In last part of the experiment, simulation for sun vector and magnetic field vector transformation will be provided.</span></p> <br>
+
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; ECIF (Earth Centered Inertial Frame)</b></span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>ECI frame has its origin at the center of the earth. Axes of ECI frame are as follows:</span></p>
+
+                            <ul style="text-align:justify;" class="Textz">
+							<li><b>X → First point of Aries:</b> On the day of March equinox(equal day
+							equal night) i.e. 21st of March, sun is in this constellation, observed from
+							the earth. This direction is vernal equinox which point toward first point
+							of Aries. This direction remains constant as the earth revolves around the
+							sun.</li>
+							<li><b>Z </b>→ Axis of rotation of earth with positive direction along north pole</li>
+							<li><b>Y → Z × X</b></li></ul>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'> Since the center of mass of earth is itself accelerating around the sun, ECI frame is not exactly inertial frame. But for specifying the orbital motion of satellite it is assumed to be inertial without any adverse effect.</span></p>
+
+                            <figure>
+								<img src="images/ecif.png" style="width: 304px;  height: 228px;" alt="ECIF">
+							 	<figcaption>Fig1. - ECIF Co-ordinates.</figcaption>
+							</figure>
+
+                            <br>
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; Orbit Frame</b></span></p>
+                           
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Orbit frame is the frame revolving around earth along with satellite. This frame is non-inertial frame of reference since its accelerating with respect to inertial frame. Its is centered at geometric center of the satellite. Axes of orbit frame are defined as:</span>
+                            </p>
+
+                            <ul style="text-align:justify;" class="Textz">
+							<li><b>X </b>→ In the plane of orbit along the velocity direction</li>
+							<li><b>Z </b>→ Towards earth center</li>
+							<li><b>Y → Z × X</b></li></ul>
+                            <br>
+
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; Body Frame</b></span></p>
+                           
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Body frame is the frame attached to the satellite itself. This frame translates and rotates along with the satellite. The satellite is stationary with respect to body frame. In special case, its axes are aligned with principal body axes of satellite. The goal of control is to orient the satellite body frame with respect to orbit frame in desired manner. In case of Pratham, goal of controller is to align body frame with orbit frame. These three frames can be visualized as shown in the following figure: </span></p> <br>
+
+                            <figure>
+							  <img src="images/allFrames.png" alt="allFrames" style="width: 304px;  height: 228px;">
+							  <figcaption>Fig2. - I: ECIF, R: Orbit frame, B:Body frame.</figcaption>
+							</figure>
+                        </div>
+                    </div>
+                </section>
+ 
+                <section id="experiment-article-section-5">
+                    <div class="icon" id="experiment-article-section-5-icon">
+                        <!-- Enclose the icon image of your lab.-->
+                        <img src="../images/manual.jpg">
+                    </div>
+                    <div class="heading" id="experiment-article-section-5-heading">Procedure</div>
+                    <div class="content" id="experiment-article-section-5-content">
+                        <div class="divContent">
+
+                        	<p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p> <br>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>In satellite, there are different types of sensors to measure the external environmental parameters. In satellite Pratham there are three sensors: Magnetometer (to measure earth’s magnetic field), Sun sensor (to get the direction of sun with respect to satellite) and GPS. These sensors give some voltages as their output as result of the measurement. We can interpret these voltages as vector quantities. For purpose of computation, it might be required to transform these vectors in different frames.</span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Following procedure can be applied to perform co-ordinate transformation.</span></p>
+                            <br>
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; Vector measurements in different frames</b></span></p>
+                            
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>From the definition of frames given in the previous section, transformation matrix between inertial and orbit frame can be easily found as follows:</span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Let <img src="images/vi.png" align="center" style="width: 20px;  height: 20px;" alt="v_i"> be the vector in inertial frame and <img src="images/vr.png" align="center" alt="v_r" style="width: 20px;  height: 20px;"> be the same vector in orbit frame. Then</span></p>
+                            <br>
+                            <img src="images/vmv.png" align="center" alt="v_i =m*v_r" style="width: 100px;  height: 20px;"><br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>where M<sub>IR</sub> is the transformation matrix from orbit frame to inertial frame. Transformation matrix transforms one frame into another. If m<sub>ij</sub> are components of this matrix, then m<sub>ij</sub> is cosine of the angle between i<sup>th</sup> axis of second frame and j<sup>th</sup> axis of initial frame. These components are also known as direction cosines. Now assume that position <bar>r</bar> and velocity <bar>v</bar> of satellite in inertial frame is known. Then using definition of orbit frame we can find images of its basis vectors in transformed frame. This means X<sub>R</sub> → a, Y<sub>R</sub> → b, Z<sub>R</sub> → c. We know from linear algebra that columns of transformation matrix are the images of basis vectors in transformed frame. Thus</span></p>
+                            <br>
+                            <img src="images/formula.png" align="center" alt="IW=tau" style="width: 410px;  height: 200px;">
+                            <br>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Inverse transformation is also easy, since rotation matrices being orthogonal, satisfy M<sub>RI</sub> = M<sub>IR</sub> −1 = M<sub>IR</sub> <sup>T</sup> .</span></p>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment-article-section-4">
+                    <div class="icon" id="experiment-article-section-4-icon">
+                        <!-- Enclose the icon image of your lab.-->
+                        <img src="../images/simulation.jpg">
+                    </div>
+                    <div class="heading" id="experiment-article-section-4-heading">
+                        Simulator
+                    </div>
+                    <div class="content" id="experiment-article-section-4-content">
+
+                    <p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                    <a href="../index.html">
+                    <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                    Back To Experiment List</span></a></p><br>
+
+                    <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'><b>Sun Vector</b><br />
+					Sun vector is the direction of sun with respect to the frame in question. Here
+					we show the time evolution of the sun vector in inertial frame and orbit frame.
+					Sun vector in inertial frame remains almost constant which is obtained from
+					sun model. User can provide the orbit parameters which will define the orbit
+					frame. Using frame transformation law given by equation (1), sun vector can
+					be plotted in orbit frame.</span></p>
+					<br>
+					<p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'><b>Magnetic field vector:</b><br />
+					Earth magnetic field at orbit position is sensed using three-axis magnetometer.
+					In satellite, we use International Geomagnetic Reference Field (IGRF - http:
+					//www.geomag.bgs.ac.uk/data_service/models_compass/igrf.html) model to find magnetic field of the earth in inertial frame. In this simulation javascript based version (https://github.com/cmweiss/geomagJS) of world magnetic model is used. This can again be converted in orbit frame using same transformation.</span></p>
+					<br>
+                    <iframe frameborder="0" height="1000" src="experiment/2_simulation.html" width="853">     </iframe>
+                    </div>
+                </section>
+
+              <!--  <section id="experiment-article-section-7">
+                    <div class="icon" id="experiment-article-section-7-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                <!--    <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id="experiment-article-section-7-heading">
+                        Review Questions
+                    </div>
+
+                    <div class="content" id=
+                    "experiment-article-section-7-content">
+                        <div class="divContent">
+                            <h2 style="color: red;"><strong style=
+                            "text-decoration: underline"><span style=
+                            "font-family: arial,helvetica,sans-serif; color: rgb(255, 0, 0);">
+                            <span style="font-size: large;">Review
+                            Questions</span></span></strong></h2>
+
+                            <h2>&nbsp;</h2>
+
+                            <p class="MsoNormal" style=
+                            "line-height: 150%; text-align: right;"><a href=
+                            "http://coep.vlab.co.in/?sub=33&amp;brch=91"><span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                            <p>&nbsp;</p><!--[if gte mso 9]&gt;&lt;xml&gt;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;
+mso-hansi-theme-font:minor-latin;
+mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;}
+&lt;/style&gt;
+&lt;![endif]-->
+
+                         <!--   <h1 style="margin-left: 0.75in; text-align: justify; text-indent: -0.25in; line-height: 150%; page-break-after: auto;">
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            <span style="">1.<span style=
+                            'font: 7pt "Times New Roman";'>&nbsp;&nbsp;&nbsp;</span></span></span>
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            What are different sources of errors in RTD
+                            measurement?</span></h1>
+
+                            <p>&nbsp;</p>
+
+                            <h1 style=
+                            "margin-left: 0.75in; text-align: justify; text-indent: -0.25in; line-height: 150%; page-break-after: auto;">
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            <span style="">2.<span style=
+                            'font: 7pt "Times New Roman";'>&nbsp;&nbsp;&nbsp;</span></span></span>
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            What is lead wire compensation?</span></h1>
+
+                            <p>&nbsp;</p>
+
+                            
+                            <h1>&nbsp;</h1>
+
+                            <p style="text-align: center;">&nbsp;</p>
+
+                            <p style="text-align: center;">&nbsp;</p>
+
+                            
+                        </div>
+                    </div>
+                </section> -->
+
+                <section id="experiment-article-section-8">
+                    <div class="icon" id="experiment-article-section-8-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                    <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id="experiment-article-section-8-heading">
+                        Reference
+                    </div>
+
+                    <div class="content" id="experiment-article-section-8-content">
+                        <div class="divContent">
+
+                        	<p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p><br>
+
+                            <p class="PreformattedText">&nbsp;</p>
+                            <p class="MsoNormal" style="text-indent: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [1] <a target="_blank" href="https://en.wikipedia.org/wiki/Earth-centered_inertial"> https://en.wikipedia.org/wiki/Earth-centered_inertial </a></span></p>
+
+                            <p class="MsoNormal" style="line-height: normal;">
+                            <span style=
+                            'font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            &nbsp;</span></p>
+
+                            <p class="MsoNormal" style="margin-left: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [2] <a target="_blank" href=" 	https://en.wikipedia.org/wiki/Rotation_matrix"> 	https://en.wikipedia.org/wiki/Rotation_matrix</a></span></p>
+
+                            <p class="MsoNormal" style="line-height: normal;">
+                            <span style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            &nbsp;</span></p>
+
+                            <p class="MsoNormal" style="margin-left: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [3] <a target="_blank" href=" 	http://www.geomag.bgs.ac.uk/data_service/models_compass/igrf.html">http://www.geomag.bgs.ac.uk/data_service/models_compass/igrf.html</a></span></p>
+
+                             <p class="MsoNormal" style="line-height: normal;">
+                            <span style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            &nbsp;</span></p>
+
+                            <p class="MsoNormal" style="margin-left: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [4] <a target="_blank" href="https://github.com/cmweiss/geomagJS">https://github.com/cmweiss/geomagJS</a></span></p>
+
+                            <p class="MsoNormal">&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </section>
+
+              <!--  <section id="experiment-article-section-9">
+                    <div class="icon" id="experiment-article-section-9-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                  <!--  <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id=
+                    "experiment-article-section-9-heading">
+                        Photo Gallery
+                    </div>
+
+                    <div class="content" id=
+                    "experiment-article-section-9-content">
+                        <p><b>Q1.</b> Time taken for one complete oscillation
+                        is called Time Period of the oscillator.<br>
+                        <input id="q1" name="q1" type="radio" value="1">
+                        True<br>
+                        <input id="q1" name="q1" type="radio" value="0">
+                        False<br>
+                        <br>
+                        <b>Q2.</b> Time period of the oscillator is constant
+                        for given values of mass, length and initial
+                        conditions.<br>
+                        <input id="q2" name="q2" type="radio" value="1">
+                        True<br></p>
+                    </div>
+                </section> -->
+            </div>
+        </article>
+	
+
+        <footer  class="footer">
+            <!-- Put the content here -->
+            <div style="margin-left:40%; margin-right:40% ">
+            <a href="../license/index.html" target="_blank" style="margin:auto"> Licensing Terms </a>
+            </div>
+      </footer> 
+    </div>
+</body>
+</html>

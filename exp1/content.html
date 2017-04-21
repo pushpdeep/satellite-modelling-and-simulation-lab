@@ -1,0 +1,645 @@
+<!-- This file needs to be edited by the lab developer to suit
+the requirements of their lab in particular.-->
+<!-- Add class="default" to include any element as it is
+specified in default.html. 
+Do not include class="default" to the elements that you want to
+edit -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <script src="numeric.js"></script>
+                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js">
+                        </script>
+                        
+
+                        <script type="text/javascript" >
+                        f = function func(t, x1){
+                            var xdot=[0,0,0,0,0,0,0];
+                            var Kp=1;
+                            var wref=[0,0,0];
+                            var q=[x1[0], x1[1], x1[2], x1[3]];
+                            var w=[x1[4], x1[5], x1[6]];
+                            var tau = [-Kp*w[0],-Kp*w[1], -Kp*w[2]];
+                            var qdot=[0,0,0,0];
+                            var W=[[0, w[2], -w[1], w[0]], [-w[2], 0, w[0], w[1]], [w[1], -w[0], 0, w[2]], [-w[0], -w[1], -w[2], 0]];
+                            qdot=numeric.dot(W,q);
+                            qdot=numeric.mul(0.5,qdot);
+                            xdot=qdot.concat(tau);
+                            return xdot;
+                        }
+                        function prop(){
+                            var x = document.getElementById("form1");
+                          
+                            //var xinit = [0,0,0,1,x[0].value,x[1].value,x[2].value];
+                          var xinit = [0,0,0,1];
+                          w0_x = (+x[0].value)*Math.PI/180
+                          w0_y = (+x[1].value)*Math.PI/180
+                          w0_z = (+x[2].value)*Math.PI/180
+                            xinit.push(w0_x);
+                            xinit.push(w0_y);
+                            xinit.push(w0_z);
+    
+                          //var xinit = [0,0,0,1,0.1,0.1,0.1]
+                            var sol = numeric.dopri(0,6,xinit,f );
+                            a=sol.x;
+                          //var trial = +x[0].value + +x[1].value;
+                            
+                            b=numeric.transpose(sol.y);
+                            c=[a,numeric.mul((180/Math.PI),b[4]),numeric.mul((180/Math.PI),b[5]),numeric.mul((180/Math.PI),b[6])];
+                            d=numeric.transpose(c);
+    
+                            //var c=numeric.transpose(a);
+
+                                    /*var text = "";
+                            var i;
+                            for (i = 0; i < 7 ;i++) {
+                              text += sol.x[i] + "<br>";
+                            }
+
+                            document.getElementById("answer").innerHTML = text;
+                          */
+                            google.charts.load('current', {packages: ['corechart', 'line']});
+                          google.charts.setOnLoadCallback(drawCurveTypes);
+
+                          function drawCurveTypes() {
+
+                          var data = new google.visualization.DataTable();
+                          data.addColumn('number', 't');
+                          data.addColumn('number', 'w_x');
+                          data.addColumn('number', 'w_y');
+                          data.addColumn('number', 'w_z');
+
+                          data.addRows(d);
+
+                          var options = {
+                            hAxis: {
+                              title: 'Time'
+                            },
+                            vAxis: {
+                              title: 'Angular velocity'
+                            },
+                            series: {
+                              1: {curveType: 'function'}
+                            }
+                          };
+                        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+                        chart.draw(data, options);
+                        }
+
+                        }
+                        </script>
+</head>
+
+<body>
+    <div id="experiment">
+        <!-- The Experiment Document Container-->
+        <!-- The lab Header contains the logo and the name of the lab,
+  usually displayed on the top of the page-->
+
+        <header class="default" id="experiment-header">
+            <div class="logo" id="experiment-header-logo">
+            <!-- Enclose the logo image of your lab or write it in 
+      text-->
+            <img src="../images/logo.jpg"></div>
+
+            <div class="heading" id="experiment-header-heading">
+                <!-- Write the name of your lab and link it to the home 
+      page of your lab (h1 tag is preferred while writing your 
+      lab name)-->
+                <a href="../index.html">Virtual Laboratory in Satellite Modeling & Simulation Lab</a>
+            </div><!-- Add any additional element you want to add to the lab 
+    header, For example : Help (Enclosing them with suitable 
+    div is recommended)-->
+        </header><!-- The lab article is the main content area where all the 
+  experiment content sits-->
+
+        <article id="experiment-article">
+            <!-- The lab article has an header, optional navigational 
+    menu, number of sections, an optional sidebar and a closing 
+    footer-->
+
+            <div class="breadcrumb" id="experiment-article-breadcrumb"></div>
+
+            <header class="heading" id="experiment-article-heading">
+                Proportional Controller
+            </header><!-- Navigation menu is useful to organize the view of 
+      multiple sections inside the article-->
+
+            <nav class="default" id="experiment-article-navigation">
+                <ul id="experiment-article-navigation-menu">
+                    <!-- The menu can be dynamically generated to contain 
+          the headings of your sections or instead write the 
+          menu items of your choice individually enclosedu in 
+          &lt;li&gt; tag as shown below-->
+                </ul>
+            </nav><!-- All the sections of your lab or experiment can be 
+      enclosed together with a div element as shown below-->
+
+            <div id="experiment-article-sections">
+                <!-- First section of the article-->
+
+                <section id="experiment-article-section-1">
+                    <div class="icon" id="experiment-article-section-1-icon">
+                    <!-- Enclose the icon image of your lab -->
+                    <img src="../images/introduction.jpg"></div>
+                    <!-- The heading for the section can be enclosed in a 
+          div tag. -->
+
+                    <div class="heading" id="experiment-article-section-1-heading">
+                        Aim
+                    </div><!-- Write the section content inside a paragraph 
+          element, You can also include images with &lt;img&gt; tag -->
+
+                    <div class="content" id="experiment-article-section-1-content">
+                        <div class="divContent">
+                          
+                            <p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                            <p><span style="font-size: medium; font-family: arial,helvetica,sans-serif; color: rgb(0, 0, 0);">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To drive the angular rates to zero by applying a proportional controller torque.</span></p>
+                            
+                            <p><!-- p { margin-bottom: 0.21cm; } --></p>
+
+                            <p><span style="font-family: arial,helvetica,sans-serif; font-size: medium; color: rgb(0, 0, 0);">
+                            <br></span></p>
+                        </div>
+                    </div>
+                </section><!-- Second section of the article-->
+
+           <!--     <section id="experiment-article-section-2">
+                    <div class="icon" id="experiment-article-section-2-icon">
+                    <!-- Enclose the icon image of your lab. -->
+                <!--    <img src="../images/theory.jpg"></div>
+                    <!-- The heading for the section can be enclosed in a 
+        div tag. -->
+
+                  <!--  <div class="heading" id="experiment-article-section-2-heading">
+                        Pre Test
+                    </div><!-- Write the section content inside a paragraph 
+        element, we can also include images with &lt;img&gt; tag -->
+
+                <!--    <div class="content" id=
+                    "experiment-article-section-2-content">
+                        <div class="divQuiz">
+                            <div id="displayQuiz">
+                                <form id="form11" method="post" name="form11">
+                                    <table border="0" style="width:100%">
+                                        <tr>
+                                            <td valign="top" width="2%"></td>
+
+                                            <td style=
+                                            "font-weight: bold; vertical-align: top; width: 1%"
+                                            width="5%"><span id=
+                                            "questionNum">1)</span></td>
+
+                                            <td colspan="2" style=
+                                            "vertical-align:top;" width="70%">
+                                            <span id="question">Transducer is a
+                                            device</span></td>
+
+                                            <td colspan="3" width="3%">
+                                            &nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>&nbsp;</td>
+
+                                            <td>&nbsp;</td>
+
+                                            <td colspan="5" width="80%">
+                                                <table align="left" border="0"
+                                                width="100%">
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans5998" name="ans0"
+                                                        type="radio" value=
+                                                        "5998"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans5998">that converts
+                                                        one form of energy into
+                                                        another
+                                                        form</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans5999" name="ans0"
+                                                        type="radio" value=
+                                                        "5999"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans5999">has mostly
+                                                        eletrical
+                                                        output</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6000" name="ans0"
+                                                        type="radio" value=
+                                                        "6000"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6000">with both the
+                                                        above
+                                                        properties</label></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div id="hint">
+                                        <div id="textHint10" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    <hr id="horizontalLine">
+
+                                    <table border="0" style="width:100%">
+                                        <tr>
+                                            <td valign="top" width="2%"></td>
+
+                                            <td style=
+                                            "font-weight: bold; vertical-align: top; width: 1%"
+                                            width="5%"><span id=
+                                            "questionNum">2)</span></td>
+
+                                            <td colspan="2" style=
+                                            "vertical-align:top;" width="70%">
+                                            <span id="question">Temperature is
+                                            measure of degree of -------- of a
+                                            substance.</span></td>
+
+                                            <td colspan="3" width="3%">
+                                            &nbsp;</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>&nbsp;</td>
+
+                                            <td>&nbsp;</td>
+
+                                            <td colspan="5" width="80%">
+                                                <table align="left" border="0"
+                                                width="100%">
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6001" name="ans1"
+                                                        type="radio" value=
+                                                        "6001"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6001">Hotness</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6002" name="ans1"
+                                                        type="radio" value=
+                                                        "6002"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6002">Coldness</label></td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td align="right" id=
+                                                        "textAnsChoice" style=
+                                                        "vertical-align:middle"
+                                                        width="32px"><input id=
+                                                        "ans6003" name="ans1"
+                                                        type="radio" value=
+                                                        "6003"></td>
+
+                                                        <td id="textAnsChoice"
+                                                        style=
+                                                        "padding-left:3px;">
+                                                        <label for=
+                                                        "ans6003">Hotness or
+                                                        Coldness</label></td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <div id="hint">
+                                        <div id="textHint11" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    
+                                    <div id="hint">
+                                        <div id="textHint14" style=
+                                        "padding-left:50px; color:#F00;"></div>
+                                    </div>
+                                    <hr id="horizontalLine">
+                                    <input align="middle" id="loadTime" name=
+                                    "loadTime" type="hidden" value=
+                                    "1379688870/"><br>
+
+                                    <div style="padding-left:40px;">
+                                        <input id="submit1" name="submit1"
+                                        onclick="get_radio_value();" style=
+                                        "width:8%;" type="submit" value=
+                                        "&nbsp;Submit&nbsp;">&nbsp;&nbsp;<input id="cancel1"
+                                        name="cancel1" style="width:8%;" type=
+                                        "reset" value="&nbsp;Cancel&nbsp;">
+                                    </div>
+                                </form><br>
+                            </div><br>
+                        </div>
+                    </div>
+                </section> -->
+
+                <section id="experiment-article-section-3">
+                    <div class="icon" id="experiment-article-section-3-icon">
+                        <!-- Enclose the icon image of your lab. -->
+                        <img src="../images/objective.jpg">
+                    </div>
+
+                    <div class="heading" id="experiment-article-section-3-heading">
+                        Theory
+                    </div>
+
+                    <div class="content" id="experiment-article-section-3-content">
+                        <div class="divContent">
+                            <p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p> <br>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>
+                            When satellite is ejected from launch vehicle, it may have high angular velocities (also called as angular rates) about its axes. The satellite is required to point in specific direction for proper functioning(refer the section: Requirement of control). The angular motion of satellite in body frame is governed by equation</span></p>
+
+                            <img src="images/1.png" align="center" alt="IW=tau"  style="width: 80px; height: 30px;">
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Where I is moment of inertia matrix in body frame and<img src="images/tau.png" style="width: 15px; height: 15px;">is torque acting on the body. So as equation suggests, to change the angular velocity of satellite, torque has to be applied on it. In space environment there are external torques acting on the satellite. But the main source of the torque is the control torque applied by actuators of the satellite. This experiment will describe the control on angular rates using proportional controller. Note that, in this experiment external torques are neglected for simplicity.</span></p>
+                            <br>
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; Requirement of Control</b></span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Generally, from different requirements (as elaborated below), it is needed that the satellite should point in a specified direction. Thus if we consider frame definitions according to previous experiment, Euler angles (https://en.wikipedia.org/wiki/Euler_angles)between orbit frame and body frame should be zero. This requirement generally arises due to following reasons:</span></p> <br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'><b>Communication</b>: Satellite sends and receives the data in form of electromagnetic waves from ground stations on the earth. This communication can be effective only if antenna and other communication devices on satellite are oriented properly.</span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'><b>Payload</b>: Some satellite payloads like optical payload,cameras and remote sensing devices might require accurate point to receive and collect the data.</span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'><b>Power</b>: To generate the power solar panels has to face sun for sufficient amount of time.</span></p>
+                            <br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Thus in order to orient the satellite we have to first determine the current orientation of the satellite and bring it to desired orientation with respect to reference frame. Attitude determination is the process of determining the current orientation of the satellite using sensor data. Control is the process in which control law is executed and actuators modify the satellite orientation accordingly.</span></p>
+                            <br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>In this experiment we will simulate simplified situation. Instead of stabilizing to desired orientation, we first stabilize the angular rates. In this case we don't bother about the final orientation. It is assumed that satellite is launched with higher angular rates. The desired value for angular rates is zero. Thus torque is applied accordingly. This simulation uses proportional controller to stabilize angular rates. </span></p>
+                            <br>
+                            <p class="MsoNormal" style="line-height: 150%;">
+                            <span style='font-size: 12pt; line-height: 150%; font-family: "Verdana","sans-serif"; color: black;'>&nbsp;<b>&nbsp; Detumbling and Nominal Mode</b></span></p>
+
+                            <br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>Generally there are two modes in satellites: Detumbling and Nominal. Detumbling is the process of stabilizing the angular rate of the satellite after orbital insertion. In detumbling mode, initial rates may be very high as the satellite is ejected from the launch vehicle. In this mode sensors like GPS are not available due to power constraints. Thus attitude of satellite is not known. So to bring down initial angular rates we have to use some coarse controller. In the case Pratham, only magnetometer is ON during detumbling. Using rate of change of magnetic field vector in body frame, we can estimate angular rates. Then proportional controller is applied to bring down the angular rates. This control algorithm is called as B-dot algorithm. If rates are below certain threshold for some time window then control is switched to nominal mode.</span></p>
+
+                            <br>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>In nominal mode, rates are low. We use PID controller to determine the attitude of the satellite and stabilize the Euler angles within required limits. The nominal controller is a fine controller.</span></p>
+                        </div>
+                    </div>
+                </section>
+ 
+                <section id="experiment-article-section-5">
+                    <div class="icon" id="experiment-article-section-5-icon">
+                        <!-- Enclose the icon image of your lab.-->
+                        <img src="../images/manual.jpg">
+                    </div>
+                    <div class="heading" id="experiment-article-section-5-heading">Procedure</div>
+                    <div class="content" id="experiment-article-section-5-content">
+                        <div class="divContent">
+
+                        	<p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                            <h3 style="color: red;">&nbsp;</h3>
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>In proportional controller, controller output is proportional to the difference between reference value and current value of the variable. This term is also called as the error signal. In this case <img src="images/wref.png" align="center" alt="w_ref=0" style="
+                            height: 15px; width: 50px;"> is desired (reference) value of angular rates. Thus at each step error term in angular rates i.e. <img src="images/error.png" align="center" alt="error" style="height: 15px; width: 75px;"> error will be calculated. Then output of controller will be <img src="images/kp.png" align="center" alt="IW=tau" style="height: 17px; width: 60px;">. This control torque will then drive the angular rates accordingly. </span></p>
+
+                            <p class="PreformattedText" align="justify"><span lang="EN-IN" style='font-size: 12pt; font-family: "Verdana","sans-serif";'>In this experiment, simple proportional controlled is applied to reduce the angular rates of the satellite.</span></p>
+
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment-article-section-4">
+                    <div class="icon" id="experiment-article-section-4-icon">
+                        <!-- Enclose the icon image of your lab.-->
+                        <img src="../images/simulation.jpg">
+                    </div>
+                    <div class="heading" id="experiment-article-section-4-heading">
+                        Simulator
+                    </div>
+                    <div class="content" id="experiment-article-section-4-content">
+
+                    	<p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                        <iframe frameborder="0" height="800" src="1_simulation.html" width="853"></iframe>
+                    </div>
+                </section>
+
+              <!--  <section id="experiment-article-section-7">
+                    <div class="icon" id="experiment-article-section-7-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                <!--    <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id="experiment-article-section-7-heading">
+                        Review Questions
+                    </div>
+
+                    <div class="content" id=
+                    "experiment-article-section-7-content">
+                        <div class="divContent">
+                            <h2 style="color: red;"><strong style=
+                            "text-decoration: underline"><span style=
+                            "font-family: arial,helvetica,sans-serif; color: rgb(255, 0, 0);">
+                            <span style="font-size: large;">Review
+                            Questions</span></span></strong></h2>
+
+                            <h2>&nbsp;</h2>
+
+                            <p class="MsoNormal" style=
+                            "line-height: 150%; text-align: right;"><a href=
+                            "http://coep.vlab.co.in/?sub=33&amp;brch=91"><span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+
+                            <p>&nbsp;</p><!--[if gte mso 9]&gt;&lt;xml&gt;
+font-size:11.0pt;
+font-family:"Calibri","sans-serif";
+mso-ascii-font-family:Calibri;
+mso-ascii-theme-font:minor-latin;
+mso-hansi-font-family:Calibri;
+mso-hansi-theme-font:minor-latin;
+mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;}
+&lt;/style&gt;
+&lt;![endif]-->
+
+                         <!--   <h1 style="margin-left: 0.75in; text-align: justify; text-indent: -0.25in; line-height: 150%; page-break-after: auto;">
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            <span style="">1.<span style=
+                            'font: 7pt "Times New Roman";'>&nbsp;&nbsp;&nbsp;</span></span></span>
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            What are different sources of errors in RTD
+                            measurement?</span></h1>
+
+                            <p>&nbsp;</p>
+
+                            <h1 style=
+                            "margin-left: 0.75in; text-align: justify; text-indent: -0.25in; line-height: 150%; page-break-after: auto;">
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            <span style="">2.<span style=
+                            'font: 7pt "Times New Roman";'>&nbsp;&nbsp;&nbsp;</span></span></span>
+                            <span style=
+                            'font-size: 12pt; line-height: 150%; font-family: "Arial","sans-serif"; color: black; font-weight: normal;'>
+                            What is lead wire compensation?</span></h1>
+
+                            <p>&nbsp;</p>
+
+                            
+                            <h1>&nbsp;</h1>
+
+                            <p style="text-align: center;">&nbsp;</p>
+
+                            <p style="text-align: center;">&nbsp;</p>
+
+                            
+                        </div>
+                    </div>
+                </section> -->
+
+                <section id="experiment-article-section-8">
+                    <div class="icon" id="experiment-article-section-8-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                    <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id=
+                    "experiment-article-section-8-heading">
+                        Reference
+                    </div>
+
+                    <div class="content" id="experiment-article-section-8-content">
+                        <div class="divContent">
+
+                        	<p class="MsoNormal" style="line-height: 150%; text-align: right;">
+                            <a href="../index.html">
+                            <span style="font-family: arial,helvetica,sans-serif; font-size: medium;">
+                            Back To Experiment List</span></a></p>
+                            
+                            <p class="PreformattedText">&nbsp;</p>
+                            <p class="MsoNormal" style="text-indent: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [1] <a target="_blank" href="https://en.wikipedia.org/wiki/Proportional_control">
+                             https://en.wikipedia.org/wiki/Proportional_control </a></span></p>
+
+                            <p class="MsoNormal" style="line-height: normal;">
+                            <span style=
+                            'font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            &nbsp;</span></p>
+
+                            <p class="MsoNormal" style="margin-left: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [2] <a target="_blank" href="https://en.wikipedia.org/wiki/Euler_angles"> https://en.wikipedia.org/wiki/Euler_angles </a></span></p>
+
+                            <p class="MsoNormal" style="line-height: normal;">
+                            <span style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            &nbsp;</span></p>
+
+                            <p class="MsoNormal" style="margin-left: 0.25in; line-height: normal;">
+                            <span lang="EN-IN" style='font-size: 12pt; font-family: "Arial","sans-serif";'>
+                            [3] <a target="_blank" href="https://en.wikipedia.org/wiki/Euler's_equations_(rigid_body_dynamics)"> https://en.wikipedia.org/wiki/Euler's_equations_(rigid_body_dynamics) </a></span></p>
+                            <p class="MsoNormal">&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div>
+                </section>
+
+              <!--  <section id="experiment-article-section-9">
+                    <div class="icon" id="experiment-article-section-9-icon">
+                    <!-- Enclose the icon image of your lab.-->
+                  <!--  <img src="../images/quizzes.jpg"></div>
+
+                    <div class="heading" id=
+                    "experiment-article-section-9-heading">
+                        Photo Gallery
+                    </div>
+
+                    <div class="content" id=
+                    "experiment-article-section-9-content">
+                        <p><b>Q1.</b> Time taken for one complete oscillation
+                        is called Time Period of the oscillator.<br>
+                        <input id="q1" name="q1" type="radio" value="1">
+                        True<br>
+                        <input id="q1" name="q1" type="radio" value="0">
+                        False<br>
+                        <br>
+                        <b>Q2.</b> Time period of the oscillator is constant
+                        for given values of mass, length and initial
+                        conditions.<br>
+                        <input id="q2" name="q2" type="radio" value="1">
+                        True<br></p>
+                    </div>
+                </section> -->
+            </div>
+        </article>
+	
+
+        <footer  class="footer">
+            <!-- Put the content here -->
+            <div style="margin-left:40%; margin-right:40% ">
+            <a href="../license/index.html" target="_blank" style="margin:auto"> Licensing Terms </a>
+            </div>
+      </footer> 
+    </div>
+</body>
+</html>
